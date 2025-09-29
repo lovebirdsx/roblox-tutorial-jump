@@ -102,18 +102,18 @@
 			<Properties>
 				<BinaryString name="AttributesSerialize"></BinaryString>
 				<CoordinateFrame name="CFrame">
-					<X>-115.412079</X>
-					<Y>27.3562202</Y>
-					<Z>-13.1098328</Z>
-					<R00>-0.152922019</R00>
-					<R01>0.780856073</R01>
-					<R02>-0.605705202</R02>
-					<R10>-7.4505806e-09</R10>
-					<R11>0.612914145</R11>
-					<R12>0.79014957</R12>
-					<R20>0.988238335</R20>
-					<R21>0.120831273</R21>
-					<R22>-0.093728058</R22>
+					<X>-98.0467911</X>
+					<Y>54.9993248</Y>
+					<Z>9.16943836</Z>
+					<R00>0.241976202</R00>
+					<R01>0.0609128252</R01>
+					<R02>-0.968368292</R02>
+					<R10>-9.31322686e-10</R10>
+					<R11>0.998027563</R11>
+					<R12>0.062778458</R12>
+					<R20>0.970282257</R20>
+					<R21>-0.0151908919</R21>
+					<R22>0.241498888</R22>
 				</CoordinateFrame>
 				<Ref name="CameraSubject">null</Ref>
 				<token name="CameraType">0</token>
@@ -122,9 +122,9 @@
 				<float name="FieldOfView">70</float>
 				<token name="FieldOfViewMode">0</token>
 				<CoordinateFrame name="Focus">
-					<X>-114.200668</X>
-					<Y>25.7759209</Y>
-					<Z>-12.9223766</Z>
+					<X>-96.110054</X>
+					<Y>54.8737679</Y>
+					<Z>8.68644047</Z>
 					<R00>1</R00>
 					<R01>0</R01>
 					<R02>0</R02>
@@ -25160,7 +25160,7 @@ local COOLDOWN = 20
 local COIN_AMOUNT_TO_ADD = 1
 
 local function updatePlayerCoins(player, updateFunction)
-	local newCointCount = PlayerData.updateValue(player, COIN_KEY_NAME, updateFunction)
+	local newCointCount = PlayerData.updateValue(player, COIN_KEY_NAME, updateFunction) or 0
 	Leaderboard.setStat(player, COIN_KEY_NAME, newCointCount)
 end
 
@@ -25289,7 +25289,7 @@ local JUMP_POWER_INCREMENT = 30
 local JUMP_COIN_COST = 5
 
 local function updateJumpPower(player, updateFunciton)
-	local newJumpPower = PlayerData.updateValue(player, JUMP_KEY_NAME, updateFunciton)
+	local newJumpPower = PlayerData.updateValue(player, JUMP_KEY_NAME, updateFunciton) or 0
 	
 	local character = player.Character or player.CharacterAdded:Wait()
 	local humanoid = character:FindFirstChildWhichIsA('Humanoid')
